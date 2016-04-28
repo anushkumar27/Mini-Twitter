@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Twitter</title>
+  <script src="js/jquery-2.2.3.js"></script>
+  <!--<script src="js/log-in.js"></script>-->
+  <link rel="stylesheet" type="text/css" href="css/log-in-style.css">
+
+<!--Bhavik s code-->
+  <script type="text/javascript">
+      function login(){
+      var un = getElementById("uname");
+      var up = getElementById("upass");
+      if( un.value == "" || up.value == "")
+      {
+
+
+          swal({   title: "Error!",   text: "Please enter Username and Password",   type: "error",   confirmButtonText: "Ok" });
+
+      }
+      }
+  </script>
+
+
+
+</head>
+<body>
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+
+<div id="fback">
+  <div class="girisback"></div>
+  <div class="kayitback"></div>
+</div>
+
+<div id="textbox">
+  <div class="toplam">
+
+    <div class="left">
+      <div id="ic">
+        <h2>Sign Up</h2>
+        <p>Welcome.</p>
+        <form id="girisyap" name="loginform1" action="register.php" id="signup_form" method="post" onsubmit="">
+
+          <div class="yarim form-group">
+            <label class="control-label" for="inputNormal">Username</label>
+            <input type="text" name="rusername" id="signup_username" class="bp-suggestions form-control" cols="50" rows="10"></input>
+          </div>
+
+
+          <div class="form-group">
+            <label class="control-label" for="inputNormal">Password</label>
+            <input type="password" name="rpassword" id="signup_password" value="" class="bp-suggestions form-control" cols="50" rows="10"></input>
+          </div>
+
+          <input type="submit" name="signup_submit" id="signup_submit" value="Sign Up" class="girisbtn" />
+        </form>
+
+        <button id="moveright">Login</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <div id="ic">
+      <h2 style="font-size: 40px">Mini Twitter</h1>
+        <h2>Login</h2>
+        <p>Welcome.</p>
+        <form name="loginform" id="girisyap" id="sidebar-user-login" action="login.php" method="post" onsubmit="javascript/login()">
+
+          <div class="form-group">
+            <label class="control-label" for="inputNormal">Username</label>
+            <input type="text" name="username" class="bp-suggestions form-control"  cols="50" rows="10"></input>
+          </div>
+          <div class="form-group soninpt">
+            <label class="control-label" for="inputNormal">Password</label>
+            <input type="password" name="password" class="bp-suggestions form-control" cols="50" rows="10"></input>
+          </div>
+          <input type="submit" value="Login" class="girisbtn" tabindex="100" />
+        </form>
+
+        <button id="moveleft">Sign Up</button>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<script type="text/javascript">
+  $('.form-control').on('focus blur', function(e) {
+  $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+}).trigger('blur');
+
+$('#moveleft').click(function() {
+  $('#textbox').animate({
+    'marginLeft': "0" //moves left
+  });
+
+  $('.toplam').animate({
+    'marginLeft': "100%" //moves right
+  });
+});
+
+$('#moveright').click(function() {
+  $('#textbox').animate({
+    'marginLeft': "50%" //moves right
+  });
+
+  $('.toplam').animate({
+    'marginLeft': "0" //moves right
+  });
+});
+</script>
+
+</body>
+</html>
